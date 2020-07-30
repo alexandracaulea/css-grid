@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Alexandra Caulea" />
+    <title>CSS Grid</title>
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css" />
+    <link rel="stylesheet" href="../src/scss/prism.scss" />
+    <link rel="stylesheet" href="../src/scss/app.scss" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>CSS Grid Layout</h1>
+      <ul class="ul-grid-icon">
+        <li>
+          <svg
+            aria-hidden="true"
+            width="20"
+            height="15"
+            viewBox="0 0 20 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path fill="#F0F0F0" d="M.066.072h19.867v14.367H.066z" />
+            <path
+              fill="#1C1C1C"
+              d="M0 .072h.066v14.367H0zM13.311.072h.066v14.367h-.066zM6.821.072h.066v14.367h-.066zM19.934.072H20v14.439h-.066zM20 0v.072H0V0z"
+            />
+            <path fill="#1C1C1C" d="M20 7.256v.072H0v-.072zM20 14.44v.071H0v-.072z" />
+            <path fill="#BE5683" fill-opacity=".2" d="M.066.093h6.755v7.152H.066z" />
+            <path fill="#BE5683" fill-opacity=".95" d="M.066 7.245h6.755v7.285H.066z" />
+            <path fill="#BE5683" fill-opacity=".6" d="M6.821 7.312h6.49v7.219h-6.49z" />
+            <path fill="#BE5683" d="M6.887.027h6.49v7.219h-6.49z" />
+            <path fill="#BE5683" fill-opacity=".8" d="M13.311.093h6.623v7.152h-6.623z" />
+            <path fill="#BE5683" fill-opacity=".5" d="M13.311 7.245h6.623v7.219h-6.623z" />
+          </svg>
+          CSS Grid is a two-dimensional layout system available in CSS
+        </li>
+        <li>
+          <svg
+            aria-hidden="true"
+            width="20"
+            height="15"
+            viewBox="0 0 20 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path fill="#F0F0F0" d="M.066.072h19.867v14.367H.066z" />
+            <path
+              fill="#1C1C1C"
+              d="M0 .072h.066v14.367H0zM13.311.072h.066v14.367h-.066zM6.821.072h.066v14.367h-.066zM19.934.072H20v14.439h-.066zM20 0v.072H0V0z"
+            />
+            <path fill="#1C1C1C" d="M20 7.256v.072H0v-.072zM20 14.44v.071H0v-.072z" />
+            <path fill="#BE5683" fill-opacity=".2" d="M.066.093h6.755v7.152H.066z" />
+            <path fill="#BE5683" fill-opacity=".95" d="M.066 7.245h6.755v7.285H.066z" />
+            <path fill="#BE5683" fill-opacity=".6" d="M6.821 7.312h6.49v7.219h-6.49z" />
+            <path fill="#BE5683" d="M6.887.027h6.49v7.219h-6.49z" />
+            <path fill="#BE5683" fill-opacity=".8" d="M13.311.093h6.623v7.152h-6.623z" />
+            <path fill="#BE5683" fill-opacity=".5" d="M13.311 7.245h6.623v7.219h-6.623z" />
+          </svg>
+          Created to tackle grid-based user interfaces on the web (small page areas, medium to large page areas)
+        </li>
+        <li>
+          <svg
+            aria-hidden="true"
+            width="20"
+            height="15"
+            viewBox="0 0 20 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path fill="#F0F0F0" d="M.066.072h19.867v14.367H.066z" />
+            <path
+              fill="#1C1C1C"
+              d="M0 .072h.066v14.367H0zM13.311.072h.066v14.367h-.066zM6.821.072h.066v14.367h-.066zM19.934.072H20v14.439h-.066zM20 0v.072H0V0z"
+            />
+            <path fill="#1C1C1C" d="M20 7.256v.072H0v-.072zM20 14.44v.071H0v-.072z" />
+            <path fill="#BE5683" fill-opacity=".2" d="M.066.093h6.755v7.152H.066z" />
+            <path fill="#BE5683" fill-opacity=".95" d="M.066 7.245h6.755v7.285H.066z" />
+            <path fill="#BE5683" fill-opacity=".6" d="M6.821 7.312h6.49v7.219h-6.49z" />
+            <path fill="#BE5683" d="M6.887.027h6.49v7.219h-6.49z" />
+            <path fill="#BE5683" fill-opacity=".8" d="M13.311.093h6.623v7.152h-6.623z" />
+            <path fill="#BE5683" fill-opacity=".5" d="M13.311 7.245h6.623v7.219h-6.623z" />
+          </svg>
+          Enables us to align elements into columns and rows
+        </li>
+        <li>
+          <svg
+            aria-hidden="true"
+            width="20"
+            height="15"
+            viewBox="0 0 20 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path fill="#F0F0F0" d="M.066.072h19.867v14.367H.066z" />
+            <path
+              fill="#1C1C1C"
+              d="M0 .072h.066v14.367H0zM13.311.072h.066v14.367h-.066zM6.821.072h.066v14.367h-.066zM19.934.072H20v14.439h-.066zM20 0v.072H0V0z"
+            />
+            <path fill="#1C1C1C" d="M20 7.256v.072H0v-.072zM20 14.44v.071H0v-.072z" />
+            <path fill="#BE5683" fill-opacity=".2" d="M.066.093h6.755v7.152H.066z" />
+            <path fill="#BE5683" fill-opacity=".95" d="M.066 7.245h6.755v7.285H.066z" />
+            <path fill="#BE5683" fill-opacity=".6" d="M6.821 7.312h6.49v7.219h-6.49z" />
+            <path fill="#BE5683" d="M6.887.027h6.49v7.219h-6.49z" />
+            <path fill="#BE5683" fill-opacity=".8" d="M13.311.093h6.623v7.152h-6.623z" />
+            <path fill="#BE5683" fill-opacity=".5" d="M13.311 7.245h6.623v7.219h-6.623z" />
+          </svg>
+          Apply CSS rules both to a parent element (which becomes the <strong>grid container</strong>)
+        </li>
+        <li>
+          <svg
+            aria-hidden="true"
+            width="20"
+            height="15"
+            viewBox="0 0 20 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path fill="#F0F0F0" d="M.066.072h19.867v14.367H.066z" />
+            <path
+              fill="#1C1C1C"
+              d="M0 .072h.066v14.367H0zM13.311.072h.066v14.367h-.066zM6.821.072h.066v14.367h-.066zM19.934.072H20v14.439h-.066zM20 0v.072H0V0z"
+            />
+            <path fill="#1C1C1C" d="M20 7.256v.072H0v-.072zM20 14.44v.071H0v-.072z" />
+            <path fill="#BE5683" fill-opacity=".2" d="M.066.093h6.755v7.152H.066z" />
+            <path fill="#BE5683" fill-opacity=".95" d="M.066 7.245h6.755v7.285H.066z" />
+            <path fill="#BE5683" fill-opacity=".6" d="M6.821 7.312h6.49v7.219h-6.49z" />
+            <path fill="#BE5683" d="M6.887.027h6.49v7.219h-6.49z" />
+            <path fill="#BE5683" fill-opacity=".8" d="M13.311.093h6.623v7.152h-6.623z" />
+            <path fill="#BE5683" fill-opacity=".5" d="M13.311 7.245h6.623v7.219h-6.623z" />
+          </svg>
+          Apply CSS rules to the element's children (which becomes the <strong>grid items</strong>)
+        </li>
+        <li>
+          <svg
+            aria-hidden="true"
+            width="20"
+            height="15"
+            viewBox="0 0 20 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path fill="#F0F0F0" d="M.066.072h19.867v14.367H.066z" />
+            <path
+              fill="#1C1C1C"
+              d="M0 .072h.066v14.367H0zM13.311.072h.066v14.367h-.066zM6.821.072h.066v14.367h-.066zM19.934.072H20v14.439h-.066zM20 0v.072H0V0z"
+            />
+            <path fill="#1C1C1C" d="M20 7.256v.072H0v-.072zM20 14.44v.071H0v-.072z" />
+            <path fill="#BE5683" fill-opacity=".2" d="M.066.093h6.755v7.152H.066z" />
+            <path fill="#BE5683" fill-opacity=".95" d="M.066 7.245h6.755v7.285H.066z" />
+            <path fill="#BE5683" fill-opacity=".6" d="M6.821 7.312h6.49v7.219h-6.49z" />
+            <path fill="#BE5683" d="M6.887.027h6.49v7.219h-6.49z" />
+            <path fill="#BE5683" fill-opacity=".8" d="M13.311.093h6.623v7.152h-6.623z" />
+            <path fill="#BE5683" fill-opacity=".5" d="M13.311 7.245h6.623v7.219h-6.623z" />
+          </svg>
+          When to use CSS Grid and when to use Flexbox? Flexbox is mainly used for simple one-dimensional layouts and
+          CSS Grid is used to two-dimensional layout. <strong>They both work very well together</strong>
+        </li>
+        <li>
+          <svg
+            aria-hidden="true"
+            width="20"
+            height="15"
+            viewBox="0 0 20 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path fill="#F0F0F0" d="M.066.072h19.867v14.367H.066z" />
+            <path
+              fill="#1C1C1C"
+              d="M0 .072h.066v14.367H0zM13.311.072h.066v14.367h-.066zM6.821.072h.066v14.367h-.066zM19.934.072H20v14.439h-.066zM20 0v.072H0V0z"
+            />
+            <path fill="#1C1C1C" d="M20 7.256v.072H0v-.072zM20 14.44v.071H0v-.072z" />
+            <path fill="#BE5683" fill-opacity=".2" d="M.066.093h6.755v7.152H.066z" />
+            <path fill="#BE5683" fill-opacity=".95" d="M.066 7.245h6.755v7.285H.066z" />
+            <path fill="#BE5683" fill-opacity=".6" d="M6.821 7.312h6.49v7.219h-6.49z" />
+            <path fill="#BE5683" d="M6.887.027h6.49v7.219h-6.49z" />
+            <path fill="#BE5683" fill-opacity=".8" d="M13.311.093h6.623v7.152h-6.623z" />
+            <path fill="#BE5683" fill-opacity=".5" d="M13.311 7.245h6.623v7.219h-6.623z" />
+          </svg>
+          Browser Support you might ask?
+          <a href="https://caniuse.com/#search=css%20grid" target="_blank" rel="noopener noreferrer">[Check here]</a>
+        </li>
+      </ul>
+    </header>
+    <main class="main">
+      <section class="section-one">
+        <div class="section-container">
+          <h2>Defining a Grid</h2>
+          <p>
+            We set the <em>display</em> property of any element to <em>grid</em>, and that element becomes the grid
+            container and all it's children become grid items.
+          </p>
+          <p>
+            I want my grid to be 2 by 2. To set the rows I've used the
+            <code class="code-highlight">grid-template-rows</code> property, and to specify how many columns should be
+            in the grid I've used <code class="code-highlight">grid-template-columns</code>.
+          </p>
+          <p>The size can be specified in any unit (eg. pixels, percentages, viewport units, 1fr).</p>
+          <div class="code-container">
+            <pre>
+<code class="language-markup">
+    <script type="prism-html-markup">
+    <div class="container">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+    </script>
+  </code>
+</pre>
+            <pre>
+  <code class="language-css">
+    <script type="prism-css-markup">
+  .container {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 200px 200px;
+  }
+    </script>
+  
+  </code>
+</pre>
+          </div>
+          <p
+            class="codepen"
+            data-height="300"
+            data-theme-id="38967"
+            data-default-tab="css,result"
+            data-user="alexandracaulea"
+            data-slug-hash="KKVLEep"
+            style="
+              height: 300px;
+              box-sizing: border-box;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 2px solid;
+              margin: 1em 0;
+              padding: 1em;
+            "
+            data-pen-title="Defining a Grid"
+          >
+            <span
+              >See the Pen <a href="https://codepen.io/alexandracaulea/pen/KKVLEep"> Defining a Grid</a> by Alexandra
+              Caulea (<a href="https://codepen.io/alexandracaulea">@alexandracaulea</a>) on
+              <a href="https://codepen.io">CodePen</a>.</span
+            >
+          </p>
+          <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+        </div>
+      </section>
+      <section>
+        <div class="section-container">
+          <h2>The <code class="code-highlight">fr</code> Unit (fraction)</h2>
+          <ul>
+            <li>
+              Is a unit defined for Grid Layout
+            </li>
+            <li>
+              It divides the space into a fraction of the available space
+            </li>
+          </ul>
+          <p class="codepen" data-height="300" data-theme-id="38967" data-default-tab="css,result" data-user="alexandracaulea"
+            data-slug-hash="ExPzJvR"
+            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+            data-pen-title="02. CSS Grid - fr (fraction) Unit - starter file">
+            <span>See the Pen <a href="https://codepen.io/alexandracaulea/pen/ExPzJvR">
+                02. CSS Grid - fr (fraction) Unit - starter file</a> by Alexandra Caulea (<a
+                href="https://codepen.io/alexandracaulea">@alexandracaulea</a>)
+              on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+          <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+        </div>
+      </section>
+      <section>
+        <div class="section-container">
+          <h2>The <code class="code-highlight">repeat()</code> Function</h2>
+          <p>Lets us specify a large number of columns or rows that follow a pattern.</p>
+          <div class="code-container">
+            <pre>
+<code class="language-css">
+<script type="prism-css-markup">
+  .container {
+    grid-template-columns: 20px 100px 20px 100px 20px 100px;
+    grid-template-rows: 100px 100px;
+  }
+
+  /* using the repeat() function */
+  .container {
+    grid-template-columns: repeat(3, 20px 100px);
+    grid-template-rows: repeat(2, 100);
+  }
+</script>
+</code>
+</pre>
+          </div>
+<p class="codepen" data-height="300" data-theme-id="38967" data-default-tab="css,result" data-user="alexandracaulea"
+  data-slug-hash="QWyXaGN"
+  style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+  data-pen-title="03. The repeat() Function - starter file">
+  <span>See the Pen <a href="https://codepen.io/alexandracaulea/pen/QWyXaGN">
+      03. The repeat() Function - starter file</a> by Alexandra Caulea (<a
+      href="https://codepen.io/alexandracaulea">@alexandracaulea</a>)
+    on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+        </div>
+      </section>
+      <section>
+        <div class="section-container">
+          <h2>The <code class="code-highlight">grid-template</code> property</h2>
+          <p>
+            Shorthand property for specifying both the <code class="code-highlight">grid-template-rows</code> and
+            <code class="code-highlight">grid-template-columns</code>.
+          </p>
+          <div class="code-container">
+            <pre>
+<code class="language-css">
+<script type="prism-css-markup">
+  /* grid-template: rows / columns  */
+
+  .container {
+    display: grid;
+    grid-template: repeat(2, 100) / repeat(3, 20px 100px);
+  }
+</script>
+</code>
+</pre>
+          </div>
+<p class="codepen" data-height="300" data-theme-id="38967" data-default-tab="html,result" data-user="alexandracaulea"
+  data-slug-hash="GRobyxK"
+  style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+  data-pen-title="04. grid-template property - starter file">
+  <span>See the Pen <a href="https://codepen.io/alexandracaulea/pen/GRobyxK">
+      04. grid-template property - starter file</a> by Alexandra Caulea (<a
+      href="https://codepen.io/alexandracaulea">@alexandracaulea</a>)
+    on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+        </div>
+      </section>
+      <section>
+        <div class="section-container">
+          <h2>Concepts and Terminology</h2>
+          <ul>
+            <li>Grid Container (aka. parent container)</li>
+            <li>Child Elements (aka. grid items)</li>
+            <li>Grid Lines</li>
+            <li>Grid Tracks</li>
+            <li>Grid Cells</li>
+            <li>Grid Areas</li>
+            <li>Explicit Grid and Implicit Grid</li>
+          </ul>
+          <article>
+            <div class="block-container">
+              <details>
+                <summary>Grid Lines</summary>
+                <ul>
+                  <li>Are the horizontal and vertical lines that form the basis of the grid structure.</li>
+                  <li>Are used to position items on the grid</li>
+                  <li>Refer to them by numerical index, starts at 1</li>
+                  <li>
+                    Grid lines have negative indices, we can reference grid lines starting from the end of the grid
+                  </li>
+                  <li>We can name the grid lines so we don't have to count which grid line you need to reference</li>
+                </ul>
+              </details>
+              <img src="../src/img/grid-lines.png" alt="" />
+            </div>
+<div class="code-container">
+  <pre>
+    <code class="language-css"><script type="prism-css-markup">
+  .container {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px;
+  }
+  
+  .item {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  </script></code></pre>
+</div>
+
+<p class="codepen" data-height="300" data-theme-id="38967" data-default-tab="css,result" data-user="alexandracaulea"
+  data-slug-hash="YzwoegN"
+  style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+  data-pen-title="05. Grid lines - starter file">
+  <span>See the Pen <a href="https://codepen.io/alexandracaulea/pen/YzwoegN">
+      05. Grid lines - starter file</a> by Alexandra Caulea (<a
+      href="https://codepen.io/alexandracaulea">@alexandracaulea</a>)
+    on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<div class="code-container">
+  <pre>
+    <code class="language-css">
+      <script type="prism-css-markup">
+  .container {
+    display: grid;
+    grid-template-columns: 100px [line2] 100px 100px [end];
+    grid-template-rows: 100px [row1-end] 100px [last-line];
+  }
+  
+  .item1 {
+    grid-column-start: line2;
+    grid-column-end: end;
+    grid-row-start: row1-end;
+    grid-row-end: last-line;
+    background-color: rgba(27, 108, 168, 0.6);
+  }
+  </script></code>
+  </pre>
+  <img class="my" src="../src/img/naming-grid-lines.png" alt="" />
+</div>
+<p class="important">👀 Sneak Peak at the layout below. Try resizing the window</p>
+<p class="codepen" data-height="300" data-theme-id="38967" data-default-tab="css,result" data-user="alexandracaulea"
+  data-slug-hash="KKVjQOJ"
+  style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+  data-pen-title="06. Naming lines">
+  <span>See the Pen <a href="https://codepen.io/alexandracaulea/pen/KKVjQOJ">
+      06. Naming lines</a> by Alexandra Caulea (<a href="https://codepen.io/alexandracaulea">@alexandracaulea</a>)
+    on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+</article>
+          <article>
+            <div class="block-container">
+              <details>
+                <summary>Grid Tracks and Grid Cells</summary>
+                <ul>
+                  <li>A grid track is the space between 2 adjacent grid lines.</li>
+                  <li>
+                    We have the ability to separate grid-tracks with gutters, using <code class="code-highlight">grid-row-gap</code> and
+                    <code class="code-highlight">grid-column-gap</code> properties
+                  </li>
+                  <li>
+                    The grid cell is the space between 2 adjacent row grid lines and 2 adjacent column grid lines. You can
+                    think of it as a table cell.
+                  </li>
+                </ul>
+              </details>
+              <img src="../src/img/grid-tracks-and-grid-cells.png" alt="" />
+            </div>
+          </article>
+          <article>
+            <div class="block-container">
+              <details>
+                <summary>Grid Areas</summary>
+                <ul>
+                  <li>A grid area is made up of 1 or more grid cells</li>
+                  <li>Is bound by 4 grid lines on each side of the grid area.</li>
+                  <li>To define a grid area use the <code class="code-highlight">grid-template-areas</code> property</li>
+                  <li>
+                    A grid item can be assigned to a grid area using:
+                    <ul>
+                      <li><code class="code-highlight">grid-area</code></li>
+                      <li><code class="code-highlight">grid-row</code>, <code class="code-highlight">grid-row-start</code>,
+                        <code class="code-highlight">grid-row-end</code></li>
+                      <li><code class="code-highlight">grid-column</code>, <code class="code-highlight">grid-column-start</code>,
+                        <code class="code-highlight">grid-column-end</code></li>
+                    </ul>
+                  </li>
+                </ul>
+              </details>
+              <img src="../src/img/grid-areas.png" alt="" />
+            </div>
+            <p class="important">👀 Sneak Peak: Grid Areas + CSS Variables + media queries = 😍</p>
+            <p class="codepen" data-height="300" data-theme-id="38967" data-default-tab="css,result" data-user="alexandracaulea"
+              data-slug-hash="eYJawwW"
+              style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+              data-pen-title="07. Grid Areas - starter file">
+              <span>See the Pen <a href="https://codepen.io/alexandracaulea/pen/eYJawwW">
+                  07. Grid Areas - starter file</a> by Alexandra Caulea (<a
+                  href="https://codepen.io/alexandracaulea">@alexandracaulea</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+          </article>        
+          <article>
+            <h2>What about some gutters?</h2>
+            <p>
+              The gutters between grid tracks can be controlled with <code class="code-highlight">grid-row-gap</code>,
+              <code class="code-highlight">grid-column-gap</code> and <code class="code-highlight">grid-gap</code>
+            </p>
+            <img class="my center" src="../src/img/grid-gap.png" alt="" />
+            <p
+              class="codepen"
+              data-height="300"
+              data-theme-id="38967"
+              data-default-tab="css,result"
+              data-user="alexandracaulea"
+              data-slug-hash="LYGKPWV"
+              style="
+                height: 300px;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 2px solid;
+                margin: 1em 0;
+                padding: 1em;
+              "
+              data-pen-title="grid-gap "
+            >
+              <span
+                >See the Pen <a href="https://codepen.io/alexandracaulea/pen/LYGKPWV"> grid-gap </a> by Alexandra Caulea
+                (<a href="https://codepen.io/alexandracaulea">@alexandracaulea</a>) on
+                <a href="https://codepen.io">CodePen</a>.</span
+              >
+            </p>
+            <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+          </article>
+        </div>
+</div>
+      </section>
+      <section>
+        <h2>Properties defined on the Grid Container Recap</h2>
+        <ul>
+          <li><code class="code-highlight">grid</code></li>
+          <li><code class="code-highlight">grid-template-columns</code></li>
+          <li><code class="code-highlight">grid-template-rows</code></li>
+          <li><code class="code-highlight">grid-template</code></li>
+          <li><code class="code-highlight">grid-template-areas</code></li>
+          <li><code class="code-highlight">grid-gap</code></li>
+          <li><code class="code-highlight">grid-column-gap</code></li>
+          <li><code class="code-highlight">grid-row-gap</code></li>
+        </ul>
+        <p>Some examples:</p>
+        <ul>
+          <li><a href="https://codepen.io/alexandracaulea/pen/zYrVaqy" target="_blank" rel="noopener noreferrer">Full Hight Layout</a></li>
+          <li><a href="https://codepen.io/alexandracaulea/pen/jOWjKVZ" target="_blank" rel="noopener noreferrer">Holly Grail Layout</a></li>
+          <li><a href="https://codepen.io/alexandracaulea/pen/eYJwZZQ" target="_blank" rel="noopener noreferrer">Overlapping elements</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2>Explicit and Implicit Grid</h2>
+        <p>
+          The explicit grid is what we define using the CSS properties like <code class="code-highlight">grid-template-rows</code>,
+          <code class="code-highlight">grid-template-columns</code> and <code class="code-highlight">grid-template-areas</code>
+        </p>
+        <article>
+          <h3>Q: But what happens if we place an item outside the grid?</h3>
+          <ul>
+            <li>
+              A: The browser will create an
+              <strong>implicit grid</strong>
+              to hold that item.
+            </li>
+            <li>
+              We can specify the values of these implicit grid tracks by using <code class="code-highlight">grid-auto-columns</code> and
+              <code class="code-highlight">grid-auto-rows</code> properties
+              <ul>
+                <li>If these properties are not set, their default values is <strong>auto</strong></li>
+                <li>If they don't have any content, they will have a height of 0</li>
+              </ul>
+            </li>
+          </ul>
+          <p
+            class="codepen"
+            data-height="300"
+            data-theme-id="38967"
+            data-default-tab="css,result"
+            data-user="alexandracaulea"
+            data-slug-hash="PoZroWd"
+            style="
+              height: 300px;
+              box-sizing: border-box;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 2px solid;
+              margin: 1em 0;
+              padding: 1em;
+            "
+            data-pen-title="grid-auto-flow"
+          >
+            <span
+              >See the Pen <a href="https://codepen.io/alexandracaulea/pen/PoZroWd"> grid-auto-flow</a> by Alexandra
+              Caulea (<a href="https://codepen.io/alexandracaulea">@alexandracaulea</a>) on
+              <a href="https://codepen.io">CodePen</a>.</span
+            >
+          </p>
+          <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+        </article>
+      </section>
+      <section>
+        <h2>Sizing a Grid Track</h2>
+        <ul>
+          <li>Can be a CSS length, like 100px</li>
+          <li>Can be a percentage, like 10%</li>
+          <li>Can be a flexible length, declared using the <code class="code-highlight">fr</code> unit</li>
+          <li><code class="code-highlight">min-content</code></li>
+          <li><code class="code-highlight">max-content</code></li>
+          <li><code class="code-highlight">auto</code></li>
+          <li>A range defined my the <code class="code-highlight">minmax()</code>function</li>
+          <li><code class="code-highlight">fit-content</code></li>
+        </ul>
+        <p
+          class="codepen"
+          data-height="300"
+          data-theme-id="38967"
+          data-default-tab="css,result"
+          data-user="alexandracaulea"
+          data-slug-hash="ExPBxEW"
+          style="
+            height: 300px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          "
+          data-pen-title="flexible-length"
+        >
+          <span
+            >See the Pen <a href="https://codepen.io/alexandracaulea/pen/ExPBxEW"> flexible-length</a> by Alexandra
+            Caulea (<a href="https://codepen.io/alexandracaulea">@alexandracaulea</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+        <article class="my">
+          <h2>Keywords: <code class="code-highlight">auto-fill</code>, <code class="code-highlight">auto-fit</code> and <code class="code-highlight">dense</code></h2>
+          <section >
+            <h3>Keyword: <code class="code-highlight">auto-fill</code></h3>
+            <ul>
+              <li>Fill the axis (row or column) with the most numbers of <em>grid tracks</em> without overflowing</li>
+              <li>It creates grid tracks even though they may not be filled with cells.</li>
+            </ul>
+            <p
+              class="codepen"
+              data-height="300"
+              data-theme-id="38967"
+              data-default-tab="html,result"
+              data-user="alexandracaulea"
+              data-slug-hash="BajgyPz"
+              style="
+                height: 300px;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 2px solid;
+                margin: 1em 0;
+                padding: 1em;
+              "
+              data-pen-title="auto-fill"
+            >
+              <span
+                >See the Pen <a href="https://codepen.io/alexandracaulea/pen/BajgyPz"> auto-fill</a> by Alexandra Caulea
+                (<a href="https://codepen.io/alexandracaulea">@alexandracaulea</a>) on
+                <a href="https://codepen.io">CodePen</a>.</span
+              >
+            </p>
+            <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+          </section>
+          <section>
+            <h3>Keyword: <code  class="code-highlight">auto-fit</code></h3>
+            <ul>
+              <li>Behaves as <code  class="code-highlight">auto-fill</code></li>
+              <li>Except it collapses all empty repeated tracks.</li>
+            </ul>
+            <p
+              class="codepen"
+              data-height="300"
+              data-theme-id="38967"
+              data-default-tab="html,result"
+              data-user="alexandracaulea"
+              data-slug-hash="GRobgYp"
+              style="
+                height: 300px;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 2px solid;
+                margin: 1em 0;
+                padding: 1em;
+              "
+              data-pen-title="auto-fit"
+            >
+              <span
+                >See the Pen <a href="https://codepen.io/alexandracaulea/pen/GRobgYp"> auto-fit</a> by Alexandra Caulea
+                (<a href="https://codepen.io/alexandracaulea">@alexandracaulea</a>) on
+                <a href="https://codepen.io">CodePen</a>.</span
+              >
+            </p>
+            <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+          </section>
+          <section class="my">
+            <h3>Keyword: <code class="code-highlight">dense</code> and the <code  class="code-highlight">grid-auto-flow</code> property</h3>
+            <p>
+              <code class="code-highlight">grid-auto-flow</code> allows us to adjust how the automatic placement of grid items work when they
+              are not explicitly positioned with any grid-placement properties.
+            </p>
+            <p><code class="code-highlight">grid-auto-flow: [ row | column ] | dense</code></p>
+            <ul>
+              <li>
+                <code class="code-highlight">row</code>: The auto-placement algorithm will place grid items by filling each row and add new
+                rows as needed.
+              </li>
+              <li>
+                <code class="code-highlight">column</code>: The auto-placement algorithm will place grid items by filling each column and add new
+                columns as needed.
+              </li>
+              <li>
+                <code class="code-highlight">dense</code>: The algorithm will attempt to fit smaller grid items that appear later in the source
+                order earlier in the grid.
+                <ul>
+                  <li>This will minimise the "holes" in the grid</li>
+                  <li>
+                    If not specified, the browser will default to the "sparse" algorithm - the grid will be filled up in
+                    order, never back-tracking. A big possibility of introducing "holes" in the grid.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <p
+              class="codepen"
+              data-height="300"
+              data-theme-id="38967"
+              data-default-tab="html,result"
+              data-user="alexandracaulea"
+              data-slug-hash="NWxZPVg"
+              style="
+                height: 300px;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 2px solid;
+                margin: 1em 0;
+                padding: 1em;
+              "
+              data-pen-title="CSS Grid - row, column, dense"
+            >
+              <span
+                >See the Pen
+                <a href="https://codepen.io/alexandracaulea/pen/NWxZPVg"> CSS Grid - row, column, dense</a> by Alexandra
+                Caulea (<a href="https://codepen.io/alexandracaulea">@alexandracaulea</a>) on
+                <a href="https://codepen.io">CodePen</a>.</span
+              >
+            </p>
+            <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+          </section>
+        </article>
+      </section>
+      <section>
+        <h2>Properties for the Children (Grid Items)</h2>
+        <ul>
+          <li>
+            <code class="code-highlight">grid-column-start</code>, <code  class="code-highlight">grid-column-end </code>, <code  class="code-highlight">grid-row-start</code>,
+            <code class="code-highlight">grid-row-end</code>
+          </li>
+          <li>
+            <code class="code-highlight">grid-column</code>, <code class="code-highlight">grid-row</code> shorthand for
+            <ul>
+              <li><code class="code-highlight">grid-column-start</code> and <code class="code-highlight">grid-column-end</code></li>
+              <li><code class="code-highlight">grid-row-start</code> and <code  class="code-highlight">grid-row-end</code></li>
+            </ul>
+          </li>
+          <li><code class="code-highlight">grid-area</code></li>
+          <li><code class="code-highlight">justify-self</code></li>
+          <li><code class="code-highlight">align-self</code></li>
+          <li><code class="code-highlight">place-self</code></li>
+          <li><code class="code-highlight">justify-items</code></li>
+          <li><code class="code-highlight">align-items</code></li>
+          <li><code class="code-highlight">place-items</code></li>
+          <li><code class="code-highlight">justify-content</code></li>
+          <li><code class="code-highlight">align-content</code></li>
+          <li><code class="code-highlight">place-content</code></li>
+        </ul>
+        <article>
+          <h3>
+            <code class="code-highlight">grid-column-start</code>, <code class="code-highlight">grid-column-end </code>, <code class="code-highlight">grid-row-start</code>,
+            <code class="code-highlight">grid-row-end</code>
+          </h3>
+          <ul>
+            <li>Determines a grid item's location within the grid by referring to specific grid lines.</li>
+            <li>
+              Values:
+              <ul>
+                <li>
+                  <strong class="code-highlight">&lt;line&gt;</strong>number to refer to a numbered grid line, or a name to refer to a named
+                  grid line
+                </li>
+                <li><code class="code-highlight">span &lt;number&gt;</code>- the item will span across the provided number of grid tracks</li>
+                <li>
+                  <code class="code-highlight">span &lt;name&gt;</code>- the item will span across until it hits the next line with the
+                  provided name
+                </li>
+                <li><code class="code-highlight">auto</code> – indicates auto-placement, an automatic span, or a default span of one</li>
+              </ul>
+            </li>
+          </ul>
+          <p
+            class="codepen"
+            data-height="300"
+            data-theme-id="38967"
+            data-default-tab="css,result"
+            data-user="alexandracaulea"
+            data-slug-hash="oNbrXEx"
+            style="
+              height: 300px;
+              box-sizing: border-box;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 2px solid;
+              margin: 1em 0;
+              padding: 1em;
+            "
+            data-pen-title="oNbrXEx"
+          >
+            <span
+              >See the Pen <a href="https://codepen.io/alexandracaulea/pen/oNbrXEx"> oNbrXEx</a> by Alexandra Caulea (<a
+                href="https://codepen.io/alexandracaulea"
+                >@alexandracaulea</a
+              >) on <a href="https://codepen.io">CodePen</a>.</span
+            >
+          </p>
+          <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+        </article>
+        <div class="two-columns">
+          <article>
+            <h3><code class="code-highlight">justify-self</code></h3>
+            <ul>
+              <li><code class="code-highlight">start</code></li>
+              <li><code class="code-highlight">end</code></li>
+              <li><code class="code-highlight">center</code></li>
+              <li><code class="code-highlight">stretch</code></li>
+            </ul>
+          </article>
+          <article>
+            <h3><code class="code-highlight">align-self</code></h3>
+            <ul>
+              <li><code class="code-highlight">start</code></li>
+              <li><code class="code-highlight">end</code></li>
+              <li><code class="code-highlight">center</code></li>
+              <li><code class="code-highlight">stretch</code></li>
+            </ul>
+          </article>
+          <article>
+            <h3><code class="code-highlight highlight">place-self</code></h3>
+            <p>place-self sets both the <code class="code-highlight">align-self</code> and <code
+                class="code-highlight">justify-self</code> properties in a single declaration.</p>
+          </article>
+          <article>
+            <h3><code class="code-highlight">justify-items</code></h3>
+            <p>Aligns grid items along the row axis. This value applies to all grid items inside the container.</p>
+            <ul>
+              <li><code class="code-highlight">start</code></li>
+              <li><code class="code-highlight">end</code></li>
+              <li><code class="code-highlight">center</code></li>
+              <li><code class="code-highlight">stretch</code></li>
+            </ul>
+          </article>
+          <article>
+            <h3><code class="code-highlight">align-items</code></h3>
+            <p>Aligns grid items along the column axis. This value applies to all grid items inside the container.</p>
+            <ul>
+              <li><code class="code-highlight">start</code></li>
+              <li><code class="code-highlight">end</code></li>
+              <li><code class="code-highlight">center</code></li>
+              <li><code class="code-highlight">stretch</code></li>
+            </ul>
+          </article>
+          <article>
+            <h3><code class="code-highlight highlight">place-items</code></h3>
+            <p>place-items sets both the <code class="code-highlight">align-items</code> and <code
+                class="code-highlight">justify-items</code> properties in a single declaration.</p>
+          </article>
+          <article>
+            <h3><code class="code-highlight">justify-content</code></h3>
+            <p>This property aligns the grid along the row axis.</p>
+            <ul>
+              <li><code class="code-highlight">start</code></li>
+              <li><code class="code-highlight">end</code></li>
+              <li><code class="code-highlight">center</code></li>
+              <li><code class="code-highlight">stretch</code></li>
+              <li><code class="code-highlight">space-around</code></li>
+              <li><code class="code-highlight">space-between</code></li>
+              <li><code class="code-highlight">space-evenly</code></li>
+            </ul>
+          </article>
+          <article>
+            <h3><code class="code-highlight">align-content</code></h3>
+            <p>This property aligns the grid along the column axis.</p>
+            <ul>
+              <li><code class="code-highlight">start</code></li>
+              <li><code class="code-highlight">end</code></li>
+              <li><code class="code-highlight">center</code></li>
+              <li><code class="code-highlight">stretch</code></li>
+              <li><code class="code-highlight">space-around</code></li>
+              <li><code class="code-highlight">space-between</code></li>
+              <li><code class="code-highlight">space-evenly</code></li>
+            </ul>
+          </article>
+          <article>
+            <h3><code class="code-highlight highlight">place-content</code></h3>
+            <p>place-content sets both the <code class="code-highlight">align-content</code> and <code
+                class="code-highlight">justify-content</code> properties in a single declaration.</p>
+          </article>
+        </div>
+        <p class="codepen" data-height="300" data-theme-id="38967" data-default-tab="css,result" data-user="alexandracaulea"
+          data-slug-hash="rNxKqeP"
+          style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+          data-pen-title="CSS Grid - example 8">
+          <span>See the Pen <a href="https://codepen.io/alexandracaulea/pen/rNxKqeP">
+              CSS Grid - example 8</a> by Alexandra Caulea (<a href="https://codepen.io/alexandracaulea">@alexandracaulea</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+      </section>
+      <section>
+        <h2>Notes</h2>
+        <ul>
+          <li>
+            float, display: inline-block, display: table-cell, vertical-align and column-* properties have no effect on
+            a grid item.
+          </li>
+          <li><code class="code-highlight">display: inline-grid</code></li>
+          <li>CSS Grid uncollapses the margins</li>
+          <li><code class="code-highlight">@support</code></li>
+          <li><code class="code-highlight">subgrid</code></li>
+        </ul>
+      </section>
+      <section>
+        <h2>🤯 What about some examples / images?</h2>
+        <ul>
+          <li><a href="https://codepen.io/alexandracaulea/pen/VweJvKM" target="_blank" rel="noopener noreferrer">Example 1</a></li>
+          <li><a href="https://codepen.io/alexandracaulea/pen/XWXLXNV" target="_blank" rel="noopener noreferrer">Example 1</a></li>
+          <li><a href="https://codepen.io/alexandracaulea/pen/mdVZVZV" target="_blank" rel="noopener noreferrer">Example 3</a></li>
+          <li><a href="https://codepen.io/alexandracaulea/pen/NWxZNgy" target="_blank" rel="noopener noreferrer">Example 4</a></li>
+          <li><a href="https://codepen.io/alexandracaulea/pen/VweJMxj" target="_blank" rel="noopener noreferrer">Example 5</a></li>
+        </ul>
+        <div class="grid-img">
+          <ul>
+            <li><img src="../src/img/example-1.PNG" alt=""></li>
+            <li><img src="../src/img/example-2.PNG" alt=""></li>
+            <li><img src="../src/img/example-3.JPG" alt=""></li>
+            <li><img src="../src/img/example-4.PNG" alt=""></li>
+            <li><img src="../src/img/example-5.PNG" alt=""></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <script src="../src/js/prism.js"></script>
+  </body>
+</html>

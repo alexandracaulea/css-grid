@@ -1,0 +1,28 @@
+{
+  "name": "cssgrid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run clean && parcel public/index.html --out-dir development",
+    "build": "rimraf ./dist && rimraf ./.cache/ && parcel build public/index.html --out-dir dist --public-url ./",
+    "clean": "rimraf ./development/ && rimraf ./.cache/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandracaulea/cssgrid.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexandracaulea/cssgrid/issues"
+  },
+  "homepage": "https://github.com/alexandracaulea/cssgrid#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "parcel-bundler": "^1.12.4",
+    "rimraf": "^3.0.2",
+    "sass": "^1.26.10"
+  }
+}
