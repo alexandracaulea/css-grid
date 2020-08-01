@@ -1,8 +1,9 @@
 {
-  "name": "cssgrid",
+  "name": "learncssgrid",
   "version": "1.0.0",
-  "description": "",
+  "description": "CSS Grid Layout presentation made for my internship",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "dev": "npm run clean && parcel public/index.html --out-dir development",
     "build": "rimraf ./dist && rimraf ./.cache/ && parcel build public/index.html --out-dir dist --public-url ./",
@@ -12,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/alexandracaulea/cssgrid.git"
   },
-  "author": "",
+  "author": "Alexandra Caulea <alexandra.caulea@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/alexandracaulea/cssgrid/issues"
