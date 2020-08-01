@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="language" content="en" />
-    <meta name="description" content="CSS Grid Layout presentation" />
+    <meta name="description" content="CSS Grid Layout presentation made for my internship" />
     <meta name="keywords" content="CSS Grid, CSS Layout, presentation" />
     <meta name="author" content="Alexandra Caulea" />
-    <title>CSS Grid</title>
+    <title>CSS Grid Layout</title>
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../src/scss/prism.scss" />
     <link rel="stylesheet" href="../src/scss/app.scss" />
   </head>
@@ -121,7 +121,7 @@
       </ul>
     </header>
     <main class="main">
-      <section class="section-one">
+      <section>
         <div class="section-container">
           <h2>Defining a Grid</h2>
           <p>
@@ -133,7 +133,7 @@
             <code class="code-highlight">grid-template-rows</code> property, and to specify how many columns should be
             in the grid I've used <code class="code-highlight">grid-template-columns</code>.
           </p>
-          <p>The size can be specified in any unit (eg. pixels, percentages, viewport units, 1fr).</p>
+          <p>The size can be specified in any unit (e.g. pixels, percentages, viewport units, 1fr).</p>
           <div class="code-container">
             <pre>
 <code class="language-markup">
@@ -213,7 +213,7 @@
       </section>
       <section>
         <div class="section-container">
-          <h2>The <code class="code-highlight">repeat()</code> Function</h2>
+          <h2>The <code class="code-highlight">repeat()</code> function</h2>
           <p>Lets us specify a large number of columns or rows that follow a pattern.</p>
           <div class="code-container">
             <pre>
@@ -260,7 +260,7 @@
 
   .container {
     display: grid;
-    grid-template: repeat(2, 100) / repeat(3, 20px 100px);
+    grid-template: repeat(2, 100px) / repeat(3, 20px 100px);
   }
 </script>
 </code>
@@ -728,7 +728,7 @@
               Values:
               <ul>
                 <li>
-                  <strong class="code-highlight">&lt;line&gt;</strong>number to refer to a numbered grid line, or a name to refer to a named
+                  <code class="code-highlight">&lt;line&gt;</code>number to refer to a numbered grid line, or a name to refer to a named
                   grid line
                 </li>
                 <li><code class="code-highlight">span &lt;number&gt;</code>- the item will span across the provided number of grid tracks</li>
@@ -873,7 +873,7 @@
         </ul>
       </section>
       <section>
-        <h2>🤯 What about some examples / images?</h2>
+        <h2>🤯 What about some examples?</h2>
         <ul>
           <li><a href="https://codepen.io/alexandracaulea/pen/VweJvKM" target="_blank" rel="noopener noreferrer">Example 1</a></li>
           <li><a href="https://codepen.io/alexandracaulea/pen/XWXLXNV" target="_blank" rel="noopener noreferrer">Example 2</a></li>
@@ -883,8 +883,8 @@
         </ul>
       </section>
     </main>
-    <footer class="footer">
-      <p>Coded by <a href="https://www.alexandracaulea.com/">Alexandra Caulea</a>. View source on <a href="https://github.com/alexandracaulea/cssgrid" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+    <footer class="footer" role="contentinfo">
+      <p>&copy; 2020 <a href="https://www.alexandracaulea.com/">Alexandra Caulea</a>. View source on <a href="https://github.com/alexandracaulea/cssgrid" target="_blank" rel="noopener noreferrer">GitHub</a></p>
     </footer>
     <svg aria-hidden="true" style="display: none;">
       <symbol id="grid-icon" viewBox="0 0 20 15">
