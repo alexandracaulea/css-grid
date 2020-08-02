@@ -131,6 +131,16 @@ em {
     }
   }
 
+  .subtitle {
+    font-size: 1.2em;
+    text-align: right;
+    color: rgba(0, 8, 57, 0.8);
+
+    a {
+      color: inherit;
+    }
+  }
+
   p {
     line-height: 1.5;
   }
