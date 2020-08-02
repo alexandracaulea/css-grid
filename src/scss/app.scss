@@ -5,9 +5,10 @@
 }
 
 :root {
-  --dark: #1C1C1C;
-  --dark-pink: #BE5683;
+  --dark: #1c1c1c;
+  --dark-pink: #a94e76;
   --light-pink: #ffe4e4;
+  --dark-icon: #010a43;
 }
 
 html {
@@ -33,7 +34,16 @@ pre {
 
 a {
   background-color: transparent;
-  color: #14b1ab;
+
+  &.default-link {
+    color: #0b827e;
+  }
+
+  &.dotted-link {
+    text-decoration: none;
+    color: var(--dark-pink);
+    border-bottom: 1px dashed var(--dark-pink);
+  }
 }
 
 strong {
@@ -47,6 +57,7 @@ code {
 
 img {
   max-width: 100%;
+  object-fit: contain;
   border-style: none;
 
   &.center {
@@ -203,10 +214,35 @@ section {
   padding: 3rem 1rem;
   text-align: center;
   background-color: #f2f2f2;
+}
+
+.social-icons {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
 
   a {
-    text-decoration: none;
-    color: var(--dark-pink);
-    border-bottom: 1px dashed var(--dark-pink);
+    padding: 0.2rem 0.7rem;
+
+    &:hover svg {
+      transform: scale(1.1);
+    }
   }
+}
+
+.screen-reader-text {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
 }
